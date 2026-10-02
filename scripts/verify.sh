@@ -3,6 +3,8 @@ set -euo pipefail
 cd "$(dirname "$0")/.."
 for file in Dockerfile entrypoint.sh compose.yaml .env.example VERSION CHANGELOG.md README.md MARKETPLACE.md PUBLISHING.md SUPPORT.md UPGRADE.md LICENSE_REVIEW.md package.json bun.lock railway.json .railway/railway.ts marketplace-metadata.json template-defaults.json template-descriptions.json template-networking.json template-volumes.json scripts/build.sh scripts/start.sh scripts/smoke.sh scripts/audit-template.sh scripts/restore-template-draft.sh; do test -s "$file"; done
 if [[ "${PUBLIC_DISTRIBUTION:-0}" != 1 ]]; then test -s FINDINGS.md; fi
+for file in LICENSE LICENSE.upstream THIRD_PARTY_NOTICES.md; do test -s "$file"; done
+for heading in '# Deploy and Host' '## About Hosting' '## Why Deploy' '## Common Use Cases' '## Dependencies for' '### Deployment Dependencies'; do rg -F "$heading" MARKETPLACE.md >/dev/null; done
 [[ "$(cat VERSION)" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]
 for file in scripts/*.sh; do bash -n "$file"; done
 bash -n entrypoint.sh

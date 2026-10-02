@@ -1,6 +1,6 @@
 # Mealie — Mealie recipe archive
 
-Template contract **1.0.1**. Pinned upstream **v3.28.0**; image digests are in Dockerfile/Compose, independent of VERSION. Railway authoring dependency is exactly `railway@3.6.0`, with `bun.lock`.
+Template contract **1.0.2**. Pinned upstream **v3.28.0**; image digests are in Dockerfile/Compose, independent of VERSION. Railway authoring dependency is exactly `railway@3.6.0`, with `bun.lock`.
 
 ## What this deploys
 
@@ -67,11 +67,11 @@ Use Admin → Backups to create/download a native ZIP, and separately retain a s
 
 Controlled JSON-LD import is tested, not arbitrary live website extraction, paywalls, JavaScript-heavy sources, remote image downloading or video transcription. Optional email/SSO/AI and hostile multi-tenant isolation are excluded. Same-group households intentionally share recipe access. The authentication/media wrapper is maintained by this template, not supported by Mealie upstream. No horizontal scaling or HA; monitor image/backup growth.
 
-Local qualification does **not** complete marketplace publication. A maintainer must perform the root metadata synchronization/audit, a sanitized-source audit, source authorization, and an explicitly approved Railway validation/cleanup. Those gates are unrun in this implementation-only task.
+Local qualification does **not** complete marketplace publication. Maintainers must verify the exact stored template on Railway, current replicas, workflow/recovery, resource headroom and owned-resource cleanup, followed by the shared marketplace metadata audit. See PUBLISHING.md for the release gates.
 
 ## Main upstream products
 
 - [Mealie](https://mealie.io/)
 - [Mealie source](https://github.com/mealie-recipes/mealie)
 
-Configuration/license reviewed at the pinned source: [v3.28.0](https://github.com/mealie-recipes/mealie/tree/v3.28.0), [AGPL-3.0-only license](https://github.com/mealie-recipes/mealie/blob/v3.28.0/LICENSE). LICENSE.upstream retains the tagged upstream license; LICENSE_REVIEW.md describes distribution obligations.
+Configuration/license reviewed at the pinned source: [v3.28.0](https://github.com/mealie-recipes/mealie/tree/v3.28.0), [AGPL-3.0-only license](https://github.com/mealie-recipes/mealie/blob/v3.28.0/LICENSE). LICENSE.upstream retains the tagged upstream license; LICENSE_REVIEW.md describes distribution obligations. The public `/api/template-source` endpoint and HTTP `Link` header offer the exact wrapper release, upstream corresponding source and notices to network users. This recipe's MIT grant does not replace upstream AGPL obligations or the separate licenses of container dependencies.

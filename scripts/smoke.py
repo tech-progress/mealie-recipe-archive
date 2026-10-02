@@ -48,6 +48,9 @@ def retained(token, slug, image_path, expected_digest):
     request(f"/api/recipes/{slug}", expected=(401, 403))
 
 
+source_notice = json.loads(request("/api/template-source"))
+assert source_notice["recipeSource"] == "https://github.com/tech-progress/mealie-recipe-archive/tree/v" + Path("VERSION").read_text().strip()
+assert source_notice["upstreamSource"].endswith("/v3.28.0")
 login("changeme@example.com", "MyPassword", expected=(400, 401, 403))
 token = login(os.environ["MEALIE_ADMIN_EMAIL"], os.environ["MEALIE_ADMIN_PASSWORD"])
 assert token

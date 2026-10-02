@@ -13,6 +13,26 @@ from mealie.db.models.recipe.recipe import RecipeModel
 from mealie.db.models.users.users import User
 
 
+@app.get("/api/template-source", tags=["Corresponding Source"])
+async def template_source():
+    return {
+        "recipeSource": "https://github.com/tech-progress/mealie-recipe-archive/tree/v1.0.2",
+        "upstreamSource": "https://github.com/mealie-recipes/mealie/tree/v3.28.0",
+        "notices": "https://github.com/tech-progress/mealie-recipe-archive/blob/v1.0.2/THIRD_PARTY_NOTICES.md",
+        "licenseScope": "Owner-authored recipe code: MIT. Upstream Mealie: AGPL-3.0-only. Component licenses and corresponding-source obligations remain applicable.",
+    }
+
+
+app.routes.insert(0, app.routes.pop())
+
+
+@app.middleware("http")
+async def corresponding_source_offer(request: Request, call_next):
+    response = await call_next(request)
+    response.headers["Link"] = '</api/template-source>; rel="describedby"; title="Corresponding source and license notices"'
+    return response
+
+
 @app.middleware("http")
 async def private_archive_media(request: Request, call_next):
     if request.url.path.startswith("/api/media/"):
