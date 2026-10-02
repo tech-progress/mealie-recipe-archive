@@ -1,0 +1,6 @@
+{
+  "Mealie": {
+    "mountPath": "/app/data",
+    "sizeMB": 5000
+  }
+}

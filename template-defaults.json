@@ -1,0 +1,15 @@
+{
+  "Mealie": {
+    "PORT": "9000",
+    "API_PORT": "9000",
+    "DATA_DIR": "/app/data",
+    "DB_ENGINE": "sqlite",
+    "ALLOW_SIGNUP": "false",
+    "MEALIE_ADMIN_EMAIL": "admin@example.invalid",
+    "MEALIE_ADMIN_PASSWORD": "${{secret(32, \"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789\")}}",
+    "BASE_URL": "https://${{Mealie.RAILWAY_PUBLIC_DOMAIN}}",
+    "PUID": "911",
+    "PGID": "911",
+    "TZ": "UTC"
+  }
+}

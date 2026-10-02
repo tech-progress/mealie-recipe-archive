@@ -1,0 +1,6 @@
+{
+  "Mealie": {
+    "publicPort": 9000,
+    "tcpProxy": false
+  }
+}

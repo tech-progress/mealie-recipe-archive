@@ -1,0 +1,15 @@
+{
+  "Mealie": {
+    "PORT": "PORT: pinned deployment setting; see README for scope and recovery requirements.",
+    "API_PORT": "API_PORT: pinned deployment setting; see README for scope and recovery requirements.",
+    "DATA_DIR": "DATA_DIR: pinned deployment setting; see README for scope and recovery requirements.",
+    "DB_ENGINE": "DB_ENGINE: pinned deployment setting; see README for scope and recovery requirements.",
+    "ALLOW_SIGNUP": "ALLOW_SIGNUP: pinned deployment setting; see README for scope and recovery requirements.",
+    "MEALIE_ADMIN_EMAIL": "Initial administrator email. Change to your actual address before first deployment; no mail service is included.",
+    "MEALIE_ADMIN_PASSWORD": "Generated password replacing the upstream default before listening; only seeds untouched default accounts.",
+    "BASE_URL": "Canonical HTTPS public URL; update when adding a custom domain.",
+    "PUID": "PUID: pinned deployment setting; see README for scope and recovery requirements.",
+    "PGID": "PGID: pinned deployment setting; see README for scope and recovery requirements.",
+    "TZ": "TZ: pinned deployment setting; see README for scope and recovery requirements."
+  }
+}

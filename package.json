@@ -1,0 +1,12 @@
+{
+  "name": "railway-mealie-recipe-archive",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "verify": "bash scripts/verify.sh",
+    "smoke": "bash scripts/smoke.sh"
+  },
+  "devDependencies": {
+    "railway": "3.6.0"
+  }
+}

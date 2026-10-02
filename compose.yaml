@@ -1,0 +1,24 @@
+services:
+  app:
+    build: .
+    environment:
+      MEALIE_ADMIN_EMAIL: ${MEALIE_ADMIN_EMAIL:-admin@example.invalid}
+      MEALIE_ADMIN_PASSWORD: ${MEALIE_ADMIN_PASSWORD:?Set MEALIE_ADMIN_PASSWORD}
+      BASE_URL: http://127.0.0.1:${LOCAL_PORT:-18550}
+      ALLOW_SIGNUP: "false"
+      DB_ENGINE: sqlite
+      DATA_DIR: /app/data
+      API_PORT: "9000"
+      PORT: "9000"
+      PUID: "911"
+      PGID: "911"
+      TZ: UTC
+    ports: ["127.0.0.1:${LOCAL_PORT:-18550}:9000"]
+    volumes: ["archive:/app/data"]
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "http://127.0.0.1:9000/api/app/about"]
+      interval: 5s
+      timeout: 3s
+      retries: 60
+volumes:
+  archive:

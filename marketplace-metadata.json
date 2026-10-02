@@ -1,0 +1,17 @@
+{
+  "name": "Mealie recipe archive",
+  "category": "Other",
+  "description": "Archive imported recipes, retained images, and portable backups",
+  "icon": "https://raw.githubusercontent.com/mealie-recipes/mealie/v3.28.0/frontend/public/icon.png",
+  "origins": [
+    {
+      "name": "Mealie",
+      "url": "https://mealie.io/"
+    },
+    {
+      "name": "Mealie source",
+      "url": "https://github.com/mealie-recipes/mealie"
+    }
+  ],
+  "directory": "mealie-recipe-archive"
+}
