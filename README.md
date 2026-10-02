@@ -1,6 +1,6 @@
 # Mealie — Mealie recipe archive
 
-Template contract **1.0.0** (unpublished). Pinned upstream **v3.28.0**; image digests are in Dockerfile/Compose, independent of VERSION. Railway authoring dependency is exactly `railway@3.6.0`, with `bun.lock`.
+Template contract **1.0.1**. Pinned upstream **v3.28.0**; image digests are in Dockerfile/Compose, independent of VERSION. Railway authoring dependency is exactly `railway@3.6.0`, with `bun.lock`.
 
 ## What this deploys
 
