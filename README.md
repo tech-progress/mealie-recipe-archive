@@ -1,6 +1,6 @@
 # Mealie — Mealie recipe archive
 
-Template contract **1.0.2**. Pinned upstream **v3.28.0**; image digests are in Dockerfile/Compose, independent of VERSION. Railway authoring dependency is exactly `railway@3.6.0`, with `bun.lock`.
+Template contract **1.0.3**. Pinned upstream **v3.28.0**; image digests are in Dockerfile/Compose, independent of VERSION. Railway authoring dependency is exactly `railway@3.6.0`, with `bun.lock`.
 
 ## What this deploys
 
@@ -60,6 +60,8 @@ Canonical public URL variables must match your HTTPS domain, including any custo
 One app volume at `/app/data`, 5 GB initial size, attached only to that service. One replica; a mounted volume does not imply HA. The directory includes `mealie.db`, recipes/images/assets, backups, `.secret` and `.session_secret`. A native backup is not a complete session-state archive.
 
 Use Admin → Backups to create/download a native ZIP, and separately retain a stopped-writer archive of all `/app/data` for exact recovery. ZIPs contain recipe data, images and `.secret`; they do not promise to preserve active browser sessions (`.session_secret`), and users should log in again. The smoke recreates an empty volume, runs pinned initialization followed by `BackupV2.restore`, and verifies recipe/image hashes and account access. Restore on the same upstream version first. Encrypt backups, retain them off-volume, and test them. For password recovery without configured SMTP, an existing admin can reset an account; do not assume signup or email reset works. Last-admin manual database repair remains an operator-only, unqualified procedure.
+
+For native online ZIP import into an empty replacement installation, keep other users/writers disconnected, upload and restore the ZIP, then **restart the Railway application before logging in again or validating restored access**. Upstream authentication caches can retain the replacement installation's signing settings until restart, producing HTTP 401 even after import succeeded. Verify the original owner credentials, recipe/image bytes and cross-group denial after restart; do not reset restored accounts with bootstrap environment variables.
 
 ## Verification and limits
 

@@ -16,9 +16,9 @@ from mealie.db.models.users.users import User
 @app.get("/api/template-source", tags=["Corresponding Source"])
 async def template_source():
     return {
-        "recipeSource": "https://github.com/tech-progress/mealie-recipe-archive/tree/v1.0.2",
+        "recipeSource": "https://github.com/tech-progress/mealie-recipe-archive/tree/v1.0.3",
         "upstreamSource": "https://github.com/mealie-recipes/mealie/tree/v3.28.0",
-        "notices": "https://github.com/tech-progress/mealie-recipe-archive/blob/v1.0.2/THIRD_PARTY_NOTICES.md",
+        "notices": "https://github.com/tech-progress/mealie-recipe-archive/blob/v1.0.3/THIRD_PARTY_NOTICES.md",
         "licenseScope": "Owner-authored recipe code: MIT. Upstream Mealie: AGPL-3.0-only. Component licenses and corresponding-source obligations remain applicable.",
     }
 

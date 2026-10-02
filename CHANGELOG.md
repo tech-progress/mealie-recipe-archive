@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.3 — 2026-10-02
+
+Document the required application restart after native online ZIP restoration changes signing settings. Verify restored owner login, group authorization and image bytes only after that restart; active browser sessions are not a portable-backup guarantee.
+
 ## 1.0.2 — 2026-10-02
 
 Expose the corresponding-source notice through the application API, retain component licensing and build-source pointers, and complete the required marketplace headings. The single-node archive/authentication/storage contract is unchanged.

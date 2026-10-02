@@ -12,6 +12,8 @@ Report template bootstrap/wrapper/IaC bugs with upstream version and sanitized l
 
 ## Account/data recovery
 
+Use an isolated empty replacement installation on the same pinned upstream version and keep other users/writers disconnected. A successful native ZIP upload/import response is not a completed restore: **restart the Railway application immediately after import**, then log in with the original owner credentials and verify recipes, retained image bytes, anonymous denial and cross-group permissions. Upstream authentication caches can otherwise retain the replacement installation's signing settings and produce HTTP 401. Portable ZIPs do not promise active-browser-session preservation. Do not overwrite restored owner credentials by changing bootstrap variables.
+
 Use Admin → Backups to create/download a native ZIP, and separately retain a stopped-writer archive of all `/app/data` for exact recovery. ZIPs contain recipe data, images and `.secret`; they do not promise to preserve active browser sessions (`.session_secret`), and users should log in again. The smoke recreates an empty volume, runs pinned initialization followed by `BackupV2.restore`, and verifies recipe/image hashes and account access. Restore on the same upstream version first. Encrypt backups, retain them off-volume, and test them. For password recovery without configured SMTP, an existing admin can reset an account; do not assume signup or email reset works. Last-admin manual database repair remains an operator-only, unqualified procedure.
 
 ## Qualification status

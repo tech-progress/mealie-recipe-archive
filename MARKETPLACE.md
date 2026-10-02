@@ -16,6 +16,8 @@ Signups are disabled. Before listening, the version-bound bootstrap calls upstre
 
 Set a real admin identity before first boot, store generated passwords securely, keep only the app public, and retain encrypted off-volume backups. Follow README.md for variables, source settings, URLs and restore procedures. This is a single-node template, not an HA architecture. Railway plans/volume limits and application workload determine suitability.
 
+Native online ZIP restoration requires an application restart before restored login/access validation; active browser sessions are not a portable-backup guarantee. Restore on the same pinned upstream version and keep other writers disconnected.
+
 ## Why Deploy Mealie on Railway
 
 Keep an authenticated recipe archive with retained media on one persistent volume. The recipe adds group-aware media authorization and preserves original owner credentials across restart and native backup restoration. This is a private archive, not a publicly shared recipe gallery or an HA service.
